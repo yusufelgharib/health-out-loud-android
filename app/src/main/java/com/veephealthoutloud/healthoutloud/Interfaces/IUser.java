@@ -51,7 +51,8 @@ public interface IUser {
      * Report a post.
      * @param post The post that is reported
      * @param reason The reason for reporting the post
+     * @return true if the post was reported
      */
-    void ReportPost(IPost post, String reason);
+    boolean ReportPost(IPost post, String reason);
 
 }
