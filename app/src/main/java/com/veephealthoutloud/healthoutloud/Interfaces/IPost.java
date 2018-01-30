@@ -6,5 +6,4 @@ package com.veephealthoutloud.healthoutloud.Interfaces;
  */
 
 public interface IPost {
-
 }
