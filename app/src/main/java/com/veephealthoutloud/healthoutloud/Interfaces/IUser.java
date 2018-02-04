@@ -1,5 +1,6 @@
 package com.veephealthoutloud.healthoutloud.Interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,9 +31,10 @@ public interface IUser {
     /**
      * Create a post by this user.
      * @param message The message for the post
+     * @param feelings The feelings for this post
      * @return The newly created post.
      */
-    IPost CreatePost(String message);
+    IPost CreatePost(String message, ArrayList<String> feelings);
 
     /**
      * Delete a post by this user.

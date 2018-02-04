@@ -4,6 +4,7 @@ import com.veephealthoutloud.healthoutloud.Interfaces.IPost;
 import com.veephealthoutloud.healthoutloud.Interfaces.IUser;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,8 +37,9 @@ public class User implements IUser {
     }
 
     @Override
-    public IPost CreatePost(String message) {
-        return new Post();
+    public IPost CreatePost(String message, ArrayList<String> feelings) {
+        // TODO: Add request to create post.
+        return new Post("postID", message, new Date(), feelings);
     }
 
     @Override
