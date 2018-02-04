@@ -25,6 +25,7 @@ public class NewsfeedActivity extends AppCompatActivity {
     }
 
     private ArrayList<String> GetPosts(){
+        // TODO: Change return type from String to IPost when IPost is implemented, change to use request to server when that's set up
         ArrayList<String> list = new ArrayList<>();
         list.add("post1");
         list.add("post2");

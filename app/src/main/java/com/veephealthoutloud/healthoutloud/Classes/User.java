@@ -12,8 +12,8 @@ import java.util.List;
 
 public class User implements IUser {
 
-    public String _email;
-    public List<IPost> _posts;
+    private String _email;
+    private List<IPost> _posts;
 
     public User(String email){
         _email = email;
