@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.veephealthoutloud.healthoutloud.Interfaces.IPost;
+
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -18,9 +21,9 @@ import java.util.ArrayList;
 public class PostAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<String> mDataSource;
+    private ArrayList<IPost> mDataSource;
 
-    public PostAdapter(Context context, ArrayList<String> posts) {
+    public PostAdapter(Context context, ArrayList<IPost> posts) {
 
         mContext = context;
         mDataSource = posts;
@@ -49,11 +52,11 @@ public class PostAdapter extends BaseAdapter {
         TextView messageTextView = postView.findViewById(R.id.post_message);
         TextView feelingsTextView = postView.findViewById(R.id.post_feelings);
 
-        String message = (String) getItem(i);
+        IPost post = (IPost) getItem(i);
 
-        dateTextView.setText(DateFormat.getDateTimeInstance().format(new Date()));
-        messageTextView.setText(message);
-        feelingsTextView.setText("#sad");
+        dateTextView.setText(DateFormat.getDateTimeInstance().format(post.GetDate()));
+        messageTextView.setText(post.GetMessage());
+        feelingsTextView.setText(post.GetFeelings().toString());
 
         return postView;
     }
