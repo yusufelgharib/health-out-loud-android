@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     tools:context="com.veephealthoutloud.healthoutloud.NewsfeedActivity">
 
     <LinearLayout
@@ -25,30 +24,11 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
-        <RelativeLayout
+        <ListView
+            android:id="@+id/newsfeed_post_list_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ListView
-                android:id="@+id/newsfeed_post_list_view"
-                android:layout_width="match_parent"
-                android:layout_margin="20dp"
-                android:layout_height="match_parent" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/newsfeed_post_list_view"
-                android:layout_alignEnd="@+id/newsfeed_post_list_view"
-                android:layout_alignRight="@+id/newsfeed_post_list_view"
-                android:layout_gravity="top"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="AddPostButtonOnClick"
-                app:srcCompat="@android:drawable/ic_menu_add" />
-
-        </RelativeLayout>
-
+        </ListView>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
