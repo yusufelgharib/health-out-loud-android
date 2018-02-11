@@ -1,6 +1,7 @@
 package com.veephealthoutloud.healthoutloud;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,18 @@ import java.util.ArrayList;
  */
 
 public class PostAdapter extends BaseAdapter {
+
+    static class ViewHolder {
+        TextView messageTextView;
+        TextView dateTextView;
+        TextView feelingsTextView;
+    }
+
     private Context mContext;
     private LayoutInflater mInflater;
     private ArrayList<IPost> mDataSource;
 
-    public PostAdapter(Context context, ArrayList<IPost> posts) {
+    PostAdapter(Context context, ArrayList<IPost> posts) {
 
         mContext = context;
         mDataSource = posts;
@@ -46,18 +54,38 @@ public class PostAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View postView = mInflater.inflate(R.layout.list_item_post, viewGroup, false);
 
-        TextView dateTextView = postView.findViewById(R.id.post_date);
-        TextView messageTextView = postView.findViewById(R.id.post_message);
-        TextView feelingsTextView = postView.findViewById(R.id.post_feelings);
+        ViewHolder viewHolder;
+
+        if (view == null){
+            view = mInflater.inflate(R.layout.list_item_post, viewGroup, false);
+
+            viewHolder = new ViewHolder();
+            viewHolder.dateTextView = view.findViewById(R.id.post_date);
+            viewHolder.messageTextView = view.findViewById(R.id.post_message);
+            viewHolder.feelingsTextView = view.findViewById(R.id.post_feelings);
+            view.setTag(viewHolder);
+        }
+        else{
+            viewHolder = (ViewHolder) view.getTag();
+        }
 
         IPost post = (IPost) getItem(i);
 
-        dateTextView.setText(DateFormat.getDateTimeInstance().format(post.GetDate()));
-        messageTextView.setText(post.GetMessage());
-        feelingsTextView.setText(post.GetFeelings().toString());
+        viewHolder.dateTextView.setText(DateFormat.getDateTimeInstance().format(post.GetDate()));
+        viewHolder.messageTextView.setText(post.GetMessage());
+        viewHolder.feelingsTextView.setText(GetFeelingsString(post.GetFeelings()));
 
-        return postView;
+        view.setBackgroundColor(Color.WHITE);
+
+        return view;
+    }
+
+    private String GetFeelingsString(ArrayList<String> feelings){
+        StringBuilder result = new StringBuilder();
+        for (String feeling : feelings){
+            result.append(String.format("#%s ", feeling));
+        }
+        return result.toString();
     }
 }
