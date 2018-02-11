@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.veephealthoutloud.healthoutloud.CreatePostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/create_post_activity_message_edit_text"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="189dp"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:selectAllOnFocus="true"
+            android:singleLine="false"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="36dp" />
+
+        <Button
+            android:id="@+id/create_post_activity_submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="OnSubmitButtonClick"
+            android:text="@string/submit_button" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

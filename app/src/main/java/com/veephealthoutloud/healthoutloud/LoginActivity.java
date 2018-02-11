@@ -18,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent but1 = new Intent(LoginActivity.this,Progress.class);
+                Intent but1 = new Intent(LoginActivity.this,NewsfeedActivity.class);
                 startActivity(but1);
 
             }

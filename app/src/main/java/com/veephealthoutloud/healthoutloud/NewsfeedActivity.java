@@ -1,7 +1,9 @@
 package com.veephealthoutloud.healthoutloud;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import com.veephealthoutloud.healthoutloud.Classes.Post;
@@ -28,13 +30,18 @@ public class NewsfeedActivity extends AppCompatActivity {
         postListView.setAdapter(postAdapter);
     }
 
+    public void AddPostButtonOnClick(View view){
+        Intent intent = new Intent(NewsfeedActivity.this, CreatePostActivity.class);
+        startActivity(intent);
+    }
+
     private ArrayList<IPost> GetPosts(){
         // TODO: Change to use request to server when that's set up
         ArrayList<IPost> list = new ArrayList<>();
 
         ArrayList<String> feelings = new ArrayList<>();
         feelings.add("sad");
-        feelings.add("annoyed");
+        feelings.add("frustrated");
 
         IPost post1 = new Post("postID", "message", new Date(), feelings);
         IPost post2 = new Post("postID2", "message2", new Date(), feelings);

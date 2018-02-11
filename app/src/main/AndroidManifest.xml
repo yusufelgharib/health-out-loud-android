@@ -22,8 +22,8 @@
             android:name=".NewsfeedActivity"
             android:label="@string/title_activity_newsfeed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Progress">
-        </activity>
+        <activity android:name=".Progress"></activity>
+        <activity android:name=".CreatePostActivity"></activity>
     </application>
 
 </manifest>
