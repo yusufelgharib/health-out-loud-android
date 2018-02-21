@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://C:\Users\court\AndroidStudioProjects\health-out-loud\HealthOutLoud.iml" filepath="C:\Users\court\AndroidStudioProjects\health-out-loud\HealthOutLoud.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/health-out-loud.iml" filepath="$PROJECT_DIR$/.idea/health-out-loud.iml" />
+      <module fileurl="file://C:\Users\dorot\StudioProjects\health-out-loud-android\.idea\health-out-loud.iml" filepath="C:\Users\dorot\StudioProjects\health-out-loud-android\.idea\health-out-loud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/health-out-loud-android.iml" filepath="$PROJECT_DIR$/health-out-loud-android.iml" />
     </modules>
   </component>
 </project>
