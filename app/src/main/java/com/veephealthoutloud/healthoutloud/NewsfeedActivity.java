@@ -1,8 +1,11 @@
 package com.veephealthoutloud.healthoutloud;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -15,11 +18,38 @@ import java.util.Date;
 public class NewsfeedActivity extends AppCompatActivity {
 
     private ListView postListView;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newsfeed);
+
+        navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_newsfeed:
+                        Intent intent = new Intent(NewsfeedActivity.this, NewsfeedActivity.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.nav_my_posts:
+                        // TODO: Change to go to MyPosts activity when implemented
+                        return true;
+                    case R.id.nav_settings:
+                        // TODO: Change to go to Account Settings activity when implemented
+                        return true;
+                    case R.id.nav_logout:
+                        // TODO: Have it actually logout
+                        intent = new Intent(NewsfeedActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        return true;
+                    default:
+                        return true;
+                }
+            }
+        });
 
         postListView = findViewById(R.id.newsfeed_post_list_view);
 
