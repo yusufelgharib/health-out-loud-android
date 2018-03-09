@@ -31,7 +31,7 @@ public class PostAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private ArrayList<IPost> mDataSource;
 
-    PostAdapter(Context context, ArrayList<IPost> posts) {
+    public PostAdapter(Context context, ArrayList<IPost> posts) {
 
         mContext = context;
         mDataSource = posts;
