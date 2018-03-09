@@ -17,13 +17,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity" />
         <activity
-            android:name=".NewsfeedActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_newsfeed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Progress"></activity>
-        <activity android:name=".CreatePostActivity"></activity>
+        <activity android:name=".Progress" />
+        <activity android:name=".CreatePostActivity" />
     </application>
 
 </manifest>
