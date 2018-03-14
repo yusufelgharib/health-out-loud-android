@@ -23,11 +23,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         button= (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openLogin();
+             
             }
         });
 

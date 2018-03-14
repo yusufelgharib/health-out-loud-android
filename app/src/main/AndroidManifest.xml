@@ -16,11 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SignupActivity" />
         <activity
-            android:name=".NewsfeedActivity"
+            android:name=".MainActivity"
             android:label="@string/title_activity_newsfeed"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".CreatePostActivity" />
         <activity
             android:name=".SettingsActivity"
