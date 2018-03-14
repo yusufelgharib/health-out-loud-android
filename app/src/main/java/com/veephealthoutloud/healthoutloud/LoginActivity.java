@@ -8,29 +8,38 @@ import android.widget.Button;
 
 
 public class LoginActivity extends AppCompatActivity {
-
-    public Button login;
-
-    public void init() {
-
-        login = (Button) findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent but1 = new Intent(LoginActivity.this,NewsfeedActivity.class);
-                startActivity(but1);
-
-            }
-        });
-    }
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        init();
+
+        button= (Button) findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSignUp();
+            }
+        });
+
+        button= (Button) findViewById(R.id.button1);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLogin();
+            }
+        });
 
 
+    }
+    public void openLogin() {
+        Intent intent = new Intent(this,NewsfeedActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSignUp() {
+        Intent intent = new Intent(this,SignupActivity.class);
+        startActivity(intent);
     }
 }

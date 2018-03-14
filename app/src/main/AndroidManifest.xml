@@ -21,9 +21,15 @@
             android:name=".NewsfeedActivity"
             android:label="@string/title_activity_newsfeed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Progress" />
         <activity android:name=".CreatePostActivity" />
-        <activity android:name=".SettingsActivity" android:exported="true"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true" />
+        <activity android:name=".ChangePasswordActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
