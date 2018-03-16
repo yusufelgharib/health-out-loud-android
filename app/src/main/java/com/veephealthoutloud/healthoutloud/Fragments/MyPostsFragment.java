@@ -7,8 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.veephealthoutloud.healthoutloud.Classes.Post;
+import com.veephealthoutloud.healthoutloud.Interfaces.IPost;
+import com.veephealthoutloud.healthoutloud.PostAdapter;
 import com.veephealthoutloud.healthoutloud.R;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,15 +26,9 @@ import com.veephealthoutloud.healthoutloud.R;
  * create an instance of this fragment.
  */
 public class MyPostsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private ListView postListView;
+    private PostAdapter postAdapter;
     private OnFragmentInteractionListener mListener;
 
     public MyPostsFragment() {
@@ -38,16 +39,12 @@ public class MyPostsFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment MyPostsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MyPostsFragment newInstance(String param1, String param2) {
+    public static MyPostsFragment newInstance() {
         MyPostsFragment fragment = new MyPostsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,10 +52,10 @@ public class MyPostsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Create list of user posts
+        ArrayList<IPost> postMessages = GetPosts();
+
+        postAdapter = new PostAdapter(getContext(), postMessages);
     }
 
     @Override
@@ -66,6 +63,12 @@ public class MyPostsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_posts, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        postListView = view.findViewById(R.id.my_posts_post_list_view);
+        postListView.setAdapter(postAdapter);
     }
 
 
@@ -97,7 +100,24 @@ public class MyPostsFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
+    }
+
+    private ArrayList<IPost> GetPosts(){
+        // TODO: Change to use request to server when that's set up
+        ArrayList<IPost> list = new ArrayList<>();
+
+        ArrayList<String> feelings = new ArrayList<>();
+        feelings.add("angry");
+        feelings.add("frustrated");
+
+        IPost post1 = new Post("postID", "UserMessage1", new Date(), feelings);
+        IPost post2 = new Post("postID2", "UserMessage2", new Date(), feelings);
+        IPost post3 = new Post("postID3", "UserMessage3", new Date(), feelings);
+        list.add(post1);
+        list.add(post2);
+        list.add(post3);
+        return list;
     }
 }
